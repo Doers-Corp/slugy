@@ -1,0 +1,85 @@
+{
+  "buildCommand": "npm run build",
+  "devCommand": "npm run dev",
+  "installCommand": "npm install",
+  "framework": "nextjs",
+  "functions": {
+    "app/api/**/*.ts": {
+      "maxDuration": 30
+    }
+  },
+  "env": {
+    "DATABASE_URL": {
+      "type": "string",
+      "name": "DATABASE_URL",
+      "description": "Neon PostgreSQL database connection string"
+    },
+    "BETTER_AUTH_URL": {
+      "type": "system",
+      "name": "BETTER_AUTH_URL",
+      "value": "https://$VERCEL_URL/api/auth"
+    },
+    "NEXT_BASE_URL": {
+      "type": "system",
+      "name": "NEXT_BASE_URL", 
+      "value": "https://$VERCEL_URL"
+    },
+    "GITHUB_CLIENT_ID": {
+      "type": "string",
+      "name": "GITHUB_CLIENT_ID",
+      "description": "GitHub OAuth Client ID"
+    },
+    "GITHUB_CLIENT_SECRET": {
+      "type": "string", 
+      "name": "GITHUB_CLIENT_SECRET",
+      "description": "GitHub OAuth Client Secret"
+    },
+    "GOOGLE_CLIENT_ID": {
+      "type": "string",
+      "name": "GOOGLE_CLIENT_ID",
+      "description": "Google OAuth Client ID"
+    },
+    "GOOGLE_CLIENT_SECRET": {
+      "type": "string",
+      "name": "GOOGLE_CLIENT_SECRET", 
+      "description": "Google OAuth Client Secret"
+    },
+    "UPSTASH_REDIS_REST_URL": {
+      "type": "string",
+      "name": "UPSTASH_REDIS_REST_URL",
+      "description": "Upstash Redis REST URL"
+    },
+    "UPSTASH_REDIS_REST_TOKEN": {
+      "type": "string",
+      "name": "UPSTASH_REDIS_REST_TOKEN",
+      "description": "Upstash Redis REST Token"
+    },
+    "RESEND_API_KEY": {
+      "type": "string",
+      "name": "RESEND_API_KEY",
+      "description": "Resend API Key for sending emails"
+    },
+    "EMAIL_FROM": {
+      "type": "string",
+      "name": "EMAIL_FROM",
+      "description": "Email sender address",
+      "value": "noreply@your-domain.com"
+    },
+    "GEMINI_API_KEY": {
+      "type": "string",
+      "name": "GEMINI_API_KEY", 
+      "description": "Google Gemini API Key for AI features (optional)"
+    },
+    "NEXT_PUBLIC_ROOT_DOMAIN": {
+      "type": "string",
+      "name": "NEXT_PUBLIC_ROOT_DOMAIN",
+      "description": "Root domain for your short links",
+      "value": "slugy.co"
+    },
+    "NODE_ENV": {
+      "type": "string",
+      "name": "NODE_ENV",
+      "value": "production"
+    }
+  }
+}

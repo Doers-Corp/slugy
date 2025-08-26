@@ -1,0 +1,89 @@
+{
+  "name": "Slugy - URL Shortener",
+  "description": "Fast, secure, and open-source link management tool with analytics, QR codes, and bio links",
+  "repository": "https://github.com/slugylink/slugy",
+  "logo": "https://opengraph.b-cdn.net/production/images/28751e40-32c9-4141-a560-f8f6d64ce48f.png",
+  "keywords": [
+    "url-shortener", 
+    "link-management", 
+    "analytics", 
+    "qr-codes", 
+    "bio-links",
+    "nextjs",
+    "typescript",
+    "vercel"
+  ],
+  "success_url": "/dashboard",
+  "env": {
+    "DATABASE_URL": {
+      "description": "Neon PostgreSQL database connection string. Get it from: https://neon.tech",
+      "required": true
+    },
+    "BETTER_AUTH_URL": {
+      "description": "Better Auth URL - will be set automatically",
+      "generator": "secret"
+    },
+    "NEXT_BASE_URL": {
+      "description": "Base URL - will be set automatically", 
+      "generator": "secret"
+    },
+    "GITHUB_CLIENT_ID": {
+      "description": "GitHub OAuth App Client ID. Create at: https://github.com/settings/applications/new",
+      "required": false
+    },
+    "GITHUB_CLIENT_SECRET": {
+      "description": "GitHub OAuth App Client Secret",
+      "required": false
+    },
+    "GOOGLE_CLIENT_ID": {
+      "description": "Google OAuth Client ID. Create at: https://console.cloud.google.com/apis/credentials",
+      "required": false
+    },
+    "GOOGLE_CLIENT_SECRET": {
+      "description": "Google OAuth Client Secret",
+      "required": false
+    },
+    "UPSTASH_REDIS_REST_URL": {
+      "description": "Upstash Redis REST URL. Get it from: https://upstash.com",
+      "required": true
+    },
+    "UPSTASH_REDIS_REST_TOKEN": {
+      "description": "Upstash Redis REST Token",
+      "required": true
+    },
+    "RESEND_API_KEY": {
+      "description": "Resend API Key for emails. Get it from: https://resend.com",
+      "required": false
+    },
+    "EMAIL_FROM": {
+      "description": "Sender email address",
+      "value": "noreply@your-domain.com",
+      "required": false
+    },
+    "GEMINI_API_KEY": {
+      "description": "Google Gemini AI API Key (optional). Get it from: https://makersuite.google.com/app/apikey", 
+      "required": false
+    },
+    "NEXT_PUBLIC_ROOT_DOMAIN": {
+      "description": "Your custom domain for short links",
+      "value": "your-domain.com",
+      "required": false
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1
+    }
+  },
+  "addons": [
+    {
+      "plan": "neon:free",
+      "as": "DATABASE"
+    }
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ]
+}

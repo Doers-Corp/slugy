@@ -27,6 +27,50 @@ Easily shorten URLs, generate QR codes, track performance, and share everything 
 
 ---
 
+## 🚀 Quick Deploy
+
+Deploy your own Slugy instance with one click:
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fslugylink%2Fslugy&env=DATABASE_URL,UPSTASH_REDIS_REST_URL,UPSTASH_REDIS_REST_TOKEN&envDescription=Required%20environment%20variables%20for%20Slugy&envLink=https%3A%2F%2Fgithub.com%2Fslugylink%2Fslugy%23environment-variables&project-name=my-slugy-app&repository-name=my-slugy-app)
+
+### Required Services for Full Functionality:
+
+1. **Database**: [Neon PostgreSQL](https://neon.tech) - Free tier available
+2. **Cache**: [Upstash Redis](https://upstash.com) - Free tier available  
+3. **Email** (Optional): [Resend](https://resend.com) - For transactional emails
+4. **OAuth** (Optional): GitHub & Google - For social authentication
+5. **AI Features** (Optional): [Google Gemini](https://makersuite.google.com) - For smart slug generation
+
+### Environment Variables Setup:
+
+After deployment, configure these environment variables in your Vercel dashboard:
+
+```env
+# Required
+DATABASE_URL="your-neon-postgres-url"
+UPSTASH_REDIS_REST_URL="your-upstash-redis-url" 
+UPSTASH_REDIS_REST_TOKEN="your-upstash-redis-token"
+
+# Auto-configured by Vercel
+BETTER_AUTH_URL="https://your-app.vercel.app/api/auth"
+NEXT_BASE_URL="https://your-app.vercel.app"
+
+# Optional - OAuth (for social login)
+GITHUB_CLIENT_ID="your-github-client-id"
+GITHUB_CLIENT_SECRET="your-github-client-secret"
+GOOGLE_CLIENT_ID="your-google-client-id"
+GOOGLE_CLIENT_SECRET="your-google-client-secret"
+
+# Optional - Email service  
+RESEND_API_KEY="your-resend-api-key"
+EMAIL_FROM="noreply@yourdomain.com"
+
+# Optional - AI features
+GEMINI_API_KEY="your-gemini-api-key"
+```
+
+---
+
 ## 🛠 Tech Stack
 
 | Tool                                            | Role                     |
