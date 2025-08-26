@@ -31,18 +31,29 @@ Easily shorten URLs, generate QR codes, track performance, and share everything 
 
 Deploy your own Slugy instance with one click:
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FDoers-Corp%2Fslugy&integration-ids=oac_V3R1GIpkoJorr6fqyiwdhl17,oac_jnzmjqM10gllKUxg5ECsyxMO&project-name=my-slugy-app&repository-name=my-slugy-app)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FDoers-Corp%2Fslugy&project-name=my-slugy-app&repository-name=my-slugy-app)
 
-### 🎯 진짜 원클릭 배포 (Integration Marketplace)
+### 🎯 2분 완성 배포 (Integration Marketplace)
 
-배포 버튼 클릭 시 **자동으로 설치됨**:
-- ✅ **Neon PostgreSQL** (무료 500MB)
-- ✅ **Upstash Redis** (무료 10,000 requests/일)
-- ✅ **환경변수 자동 연결**
+**1단계**: Deploy 버튼 클릭 (30초)
 
-**추가 설정 필요 없음!** 바로 사용 가능합니다.
+**2단계**: 배포 완료 후 Vercel 대시보드에서 (1분):
+1. 왼쪽 **"Integrations"** 탭 클릭
+2. **"Browse Marketplace"** 클릭  
+3. **"Neon"** 검색 → **"Add Integration"**
+4. **"Upstash"** 검색 → **"Add Integration"**
+5. ✅ **완료!** 환경변수 자동 연결됨
 
-### 🛠️ 선택적 기능 추가
+**추가 설정 필요 없음!** Integration 추가하면 바로 작동합니다.
+
+### 🛠️ 대안: Vercel 내장 서비스 (더 간단)
+
+Integration 대신 Vercel 내장 서비스 사용:
+1. **Storage** 탭 → **Create Database** → **Postgres** (무료 512MB)  
+2. **Storage** 탭 → **Create Database** → **KV** (무료 30MB)
+3. ✅ 즉시 사용 가능!
+
+### 🔧 선택적 기능 추가
 
 배포 후 원하는 기능 추가:
 - **OAuth 로그인**: GitHub, Google 
