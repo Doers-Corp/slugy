@@ -33,40 +33,39 @@ Deploy your own Slugy instance with one click:
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fslugylink%2Fslugy&env=DATABASE_URL,UPSTASH_REDIS_REST_URL,UPSTASH_REDIS_REST_TOKEN&envDescription=Required%20environment%20variables%20for%20Slugy&envLink=https%3A%2F%2Fgithub.com%2Fslugylink%2Fslugy%23environment-variables&project-name=my-slugy-app&repository-name=my-slugy-app)
 
-### Required Services for Full Functionality:
+### 🎯 진짜 원클릭 배포 (Vercel 내장 서비스 사용)
 
-1. **Database**: [Neon PostgreSQL](https://neon.tech) - Free tier available
-2. **Cache**: [Upstash Redis](https://upstash.com) - Free tier available  
-3. **Email** (Optional): [Resend](https://resend.com) - For transactional emails
-4. **OAuth** (Optional): GitHub & Google - For social authentication
-5. **AI Features** (Optional): [Google Gemini](https://makersuite.google.com) - For smart slug generation
+배포 후 Vercel 대시보드에서 **2분 설정**:
 
-### Environment Variables Setup:
+1. **Storage 탭** → **Create Database** → **Postgres** (무료)
+2. **Storage 탭** → **Create Database** → **KV** (무료) 
+3. 환경변수 자동 연결 완료! ✅
 
-After deployment, configure these environment variables in your Vercel dashboard:
+### 대안: 외부 서비스 사용
+
+외부 서비스를 원한다면:
+- **Database**: [Neon PostgreSQL](https://neon.tech) - 더 많은 무료 용량
+- **Cache**: [Upstash Redis](https://upstash.com) - 더 고급 기능
+
+### Environment Variables (자동 설정됨):
+
+Vercel 내장 서비스 사용시 자동으로 설정되는 변수들:
 
 ```env
-# Required
-DATABASE_URL="your-neon-postgres-url"
-UPSTASH_REDIS_REST_URL="your-upstash-redis-url" 
-UPSTASH_REDIS_REST_TOKEN="your-upstash-redis-token"
-
-# Auto-configured by Vercel
+# ✅ Vercel에서 자동 생성
+POSTGRES_URL="자동생성됨"
+POSTGRES_PRISMA_URL="자동생성됨" 
+KV_URL="자동생성됨"
+KV_REST_API_URL="자동생성됨"
+KV_REST_API_TOKEN="자동생성됨"
 BETTER_AUTH_URL="https://your-app.vercel.app/api/auth"
 NEXT_BASE_URL="https://your-app.vercel.app"
 
-# Optional - OAuth (for social login)
-GITHUB_CLIENT_ID="your-github-client-id"
-GITHUB_CLIENT_SECRET="your-github-client-secret"
-GOOGLE_CLIENT_ID="your-google-client-id"
-GOOGLE_CLIENT_SECRET="your-google-client-secret"
-
-# Optional - Email service  
-RESEND_API_KEY="your-resend-api-key"
-EMAIL_FROM="noreply@yourdomain.com"
-
-# Optional - AI features
-GEMINI_API_KEY="your-gemini-api-key"
+# 🔧 선택적으로 추가 (OAuth, 이메일, AI 등)
+GITHUB_CLIENT_ID="optional"
+GITHUB_CLIENT_SECRET="optional"
+RESEND_API_KEY="optional"
+GEMINI_API_KEY="optional"
 ```
 
 ---

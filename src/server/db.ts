@@ -13,15 +13,21 @@ declare global {
 }
 
 function createPrismaClient(): PrismaClient {
+  // Vercel Postgres URL이 있으면 우선 사용, 없으면 일반 DATABASE_URL 사용
+  const connectionString = 
+    process.env.POSTGRES_PRISMA_URL || 
+    process.env.DATABASE_URL!;
+    
   const adapter = new PrismaNeon({
-    connectionString: process.env.DATABASE_URL!,
+    connectionString,
   });
 
   let client = new PrismaClient({ adapter, log: ["error"] });
 
-  if (process.env.DATABASE_REPLICA_URL) {
+  const replicaUrl = process.env.DATABASE_REPLICA_URL;
+  if (replicaUrl) {
     client = client.$extends(
-      readReplicas({ url: process.env.DATABASE_REPLICA_URL! }),
+      readReplicas({ url: replicaUrl }),
     ) as unknown as PrismaClient;
   }
 

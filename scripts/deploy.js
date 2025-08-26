@@ -23,13 +23,16 @@ async function deploySetup() {
         console.log(`🔗 Auto-configured auth URLs for: ${baseUrl}`);
       }
       
-      // Run database migrations if DATABASE_URL is available
-      if (process.env.DATABASE_URL) {
+      // Run database migrations if any database URL is available  
+      const dbUrl = process.env.POSTGRES_PRISMA_URL || process.env.DATABASE_URL;
+      if (dbUrl) {
         console.log('🗄️ Running database migrations...');
+        console.log('📡 Using database:', dbUrl.includes('vercel') ? 'Vercel Postgres' : 'External PostgreSQL');
         execSync('npx prisma migrate deploy', { stdio: 'inherit' });
         console.log('✅ Database migrations completed');
       } else {
-        console.log('⚠️ DATABASE_URL not found - skipping migrations');
+        console.log('⚠️ No database URL found - skipping migrations');
+        console.log('💡 Add Vercel Postgres in your Vercel dashboard: Storage → Create Database → Postgres');
       }
       
       // Generate Prisma client

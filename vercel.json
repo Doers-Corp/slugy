@@ -1,6 +1,6 @@
 {
   "buildCommand": "npm run build",
-  "devCommand": "npm run dev",
+  "devCommand": "npm run dev", 
   "installCommand": "npm install",
   "framework": "nextjs",
   "functions": {
@@ -9,10 +9,29 @@
     }
   },
   "env": {
+    "POSTGRES_PRISMA_URL": {
+      "type": "string",
+      "name": "POSTGRES_PRISMA_URL",
+      "description": "Vercel Postgres Prisma URL (auto-generated when you add Vercel Postgres)",
+      "required": false
+    },
+    "KV_REST_API_URL": {
+      "type": "string", 
+      "name": "KV_REST_API_URL",
+      "description": "Vercel KV REST API URL (auto-generated when you add Vercel KV)",
+      "required": false
+    },
+    "KV_REST_API_TOKEN": {
+      "type": "string",
+      "name": "KV_REST_API_TOKEN", 
+      "description": "Vercel KV REST API Token (auto-generated when you add Vercel KV)",
+      "required": false
+    },
     "DATABASE_URL": {
       "type": "string",
       "name": "DATABASE_URL",
-      "description": "Neon PostgreSQL database connection string"
+      "description": "Alternative: External PostgreSQL URL (e.g., Neon)",
+      "required": false
     },
     "BETTER_AUTH_URL": {
       "type": "system",

@@ -1,16 +1,17 @@
 import { Redis } from "@upstash/redis";
 
+// Vercel KV 또는 Upstash Redis 지원
+const redisUrl = process.env.KV_REST_API_URL || process.env.UPSTASH_REDIS_REST_URL;
+const redisToken = process.env.KV_REST_API_TOKEN || process.env.UPSTASH_REDIS_REST_TOKEN;
+
 // Validate environment variables early for secure startup
-if (
-  !process.env.UPSTASH_REDIS_REST_URL ||
-  !process.env.UPSTASH_REDIS_REST_TOKEN
-) {
-  throw new Error("Missing Redis configuration in environment variables.");
+if (!redisUrl || !redisToken) {
+  throw new Error("Missing Redis configuration. Need either Vercel KV or Upstash Redis environment variables.");
 }
 
 export const redis = new Redis({
-  url: process.env.UPSTASH_REDIS_REST_URL,
-  token: process.env.UPSTASH_REDIS_REST_TOKEN,
+  url: redisUrl,
+  token: redisToken,
 });
 
 export const CACHE_BASE_TTL = 60 * 60 * 23; // 23 hours, in seconds
