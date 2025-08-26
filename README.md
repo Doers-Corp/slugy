@@ -33,18 +33,18 @@ Deploy your own Slugy instance with one click:
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FDoers-Corp%2Fslugy&project-name=my-slugy-app&repository-name=my-slugy-app)
 
-### 🎯 2분 완성 배포 (Integration Marketplace)
+### 🎯 2분 완성 배포 (최신 Vercel Integration)
 
-**1단계**: Deploy 버튼 클릭 (30초)
+**1단계**: Deploy 버튼 클릭 → 앱 배포 (30초)
 
-**2단계**: 배포 완료 후 Vercel 대시보드에서 (1분):
-1. 왼쪽 **"Integrations"** 탭 클릭
-2. **"Browse Marketplace"** 클릭  
-3. **"Neon"** 검색 → **"Add Integration"**
-4. **"Upstash"** 검색 → **"Add Integration"**
+**2단계**: Vercel 대시보드에서 Storage 추가 (1분):
+1. 프로젝트 대시보드 → **"Storage"** 탭 
+2. **"Create Database"** 클릭  
+3. **"Neon"** 선택 → 데이터베이스 생성
+4. **"Create Database"** → **"Upstash Redis"** 선택
 5. ✅ **완료!** 환경변수 자동 연결됨
 
-**추가 설정 필요 없음!** Integration 추가하면 바로 작동합니다.
+**추가 설정 필요 없음!** Storage 추가하면 바로 작동합니다.
 
 ### 🛠️ 대안: Vercel 내장 서비스 (더 간단)
 

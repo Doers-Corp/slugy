@@ -8,10 +8,7 @@
       "maxDuration": 30
     }
   },
-  "integrations": {
-    "neon": {},
-    "upstash": {}
-  },
+
   "env": {
     "NEON_DATABASE_URL": {
       "type": "string",
