@@ -24,15 +24,18 @@ async function deploySetup() {
       }
       
       // Run database migrations if any database URL is available  
-      const dbUrl = process.env.POSTGRES_PRISMA_URL || process.env.DATABASE_URL;
+      const dbUrl = process.env.NEON_DATABASE_URL || process.env.POSTGRES_PRISMA_URL || process.env.DATABASE_URL;
       if (dbUrl) {
         console.log('🗄️ Running database migrations...');
-        console.log('📡 Using database:', dbUrl.includes('vercel') ? 'Vercel Postgres' : 'External PostgreSQL');
+        let dbType = 'External PostgreSQL';
+        if (dbUrl.includes('neon')) dbType = 'Neon PostgreSQL';
+        else if (dbUrl.includes('vercel')) dbType = 'Vercel Postgres';
+        console.log('📡 Using database:', dbType);
         execSync('npx prisma migrate deploy', { stdio: 'inherit' });
         console.log('✅ Database migrations completed');
       } else {
         console.log('⚠️ No database URL found - skipping migrations');
-        console.log('💡 Add Vercel Postgres in your Vercel dashboard: Storage → Create Database → Postgres');
+        console.log('💡 Click the Deploy button to auto-install Neon PostgreSQL integration');
       }
       
       // Generate Prisma client

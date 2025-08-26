@@ -13,8 +13,9 @@ declare global {
 }
 
 function createPrismaClient(): PrismaClient {
-  // Vercel Postgres URL이 있으면 우선 사용, 없으면 일반 DATABASE_URL 사용
+  // 우선순위: Neon Integration > Vercel Postgres > 일반 DATABASE_URL
   const connectionString = 
+    process.env.NEON_DATABASE_URL ||
     process.env.POSTGRES_PRISMA_URL || 
     process.env.DATABASE_URL!;
     

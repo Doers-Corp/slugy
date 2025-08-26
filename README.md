@@ -31,41 +31,49 @@ Easily shorten URLs, generate QR codes, track performance, and share everything 
 
 Deploy your own Slugy instance with one click:
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fslugylink%2Fslugy&env=DATABASE_URL,UPSTASH_REDIS_REST_URL,UPSTASH_REDIS_REST_TOKEN&envDescription=Required%20environment%20variables%20for%20Slugy&envLink=https%3A%2F%2Fgithub.com%2Fslugylink%2Fslugy%23environment-variables&project-name=my-slugy-app&repository-name=my-slugy-app)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FDoers-Corp%2Fslugy&integration-ids=oac_V3R1GIpkoJorr6fqyiwdhl17,oac_jnzmjqM10gllKUxg5ECsyxMO&project-name=my-slugy-app&repository-name=my-slugy-app)
 
-### 🎯 진짜 원클릭 배포 (Vercel 내장 서비스 사용)
+### 🎯 진짜 원클릭 배포 (Integration Marketplace)
 
-배포 후 Vercel 대시보드에서 **2분 설정**:
+배포 버튼 클릭 시 **자동으로 설치됨**:
+- ✅ **Neon PostgreSQL** (무료 500MB)
+- ✅ **Upstash Redis** (무료 10,000 requests/일)
+- ✅ **환경변수 자동 연결**
 
-1. **Storage 탭** → **Create Database** → **Postgres** (무료)
-2. **Storage 탭** → **Create Database** → **KV** (무료) 
-3. 환경변수 자동 연결 완료! ✅
+**추가 설정 필요 없음!** 바로 사용 가능합니다.
 
-### 대안: 외부 서비스 사용
+### 🛠️ 선택적 기능 추가
 
-외부 서비스를 원한다면:
-- **Database**: [Neon PostgreSQL](https://neon.tech) - 더 많은 무료 용량
-- **Cache**: [Upstash Redis](https://upstash.com) - 더 고급 기능
+배포 후 원하는 기능 추가:
+- **OAuth 로그인**: GitHub, Google 
+- **이메일 알림**: Resend
+- **AI 슬러그 생성**: Google Gemini
+- **파일 업로드**: AWS S3
+- **결제 시스템**: Polar
 
 ### Environment Variables (자동 설정됨):
 
-Vercel 내장 서비스 사용시 자동으로 설정되는 변수들:
-
 ```env
+# ✅ Neon Integration에서 자동 생성
+DATABASE_URL="자동생성됨"
+NEON_DATABASE_URL="자동생성됨"
+
+# ✅ Upstash Integration에서 자동 생성  
+UPSTASH_REDIS_REST_URL="자동생성됨"
+UPSTASH_REDIS_REST_TOKEN="자동생성됨"
+
 # ✅ Vercel에서 자동 생성
-POSTGRES_URL="자동생성됨"
-POSTGRES_PRISMA_URL="자동생성됨" 
-KV_URL="자동생성됨"
-KV_REST_API_URL="자동생성됨"
-KV_REST_API_TOKEN="자동생성됨"
 BETTER_AUTH_URL="https://your-app.vercel.app/api/auth"
 NEXT_BASE_URL="https://your-app.vercel.app"
+VERCEL_URL="your-app.vercel.app"
 
-# 🔧 선택적으로 추가 (OAuth, 이메일, AI 등)
-GITHUB_CLIENT_ID="optional"
-GITHUB_CLIENT_SECRET="optional"
-RESEND_API_KEY="optional"
-GEMINI_API_KEY="optional"
+# 🔧 선택적으로 추가할 환경변수들
+GITHUB_CLIENT_ID=""
+GITHUB_CLIENT_SECRET=""
+GOOGLE_CLIENT_ID=""
+GOOGLE_CLIENT_SECRET=""
+RESEND_API_KEY=""
+GEMINI_API_KEY=""
 ```
 
 ---
